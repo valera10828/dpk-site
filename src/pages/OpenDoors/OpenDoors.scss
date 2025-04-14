@@ -1,0 +1,381 @@
+@use "../../assets/styles/variables" as *;
+@use "../../assets/styles/mixins" as *;
+
+.open-doors-page {
+    width: 100%;
+    max-width: $container-width;
+    margin: 0 auto;
+    padding: $spacing-lg 0;
+}
+
+.open-doors {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: $spacing-xl;
+    margin-top: $spacing-lg;
+    margin-bottom: $spacing-xl;
+
+    @include media($breakpoints-tablet-landscape) {
+        grid-template-columns: 300px 1fr;
+        gap: $spacing-lg;
+    }
+
+    @include media($breakpoints-tablet) {
+        grid-template-columns: 1fr;
+        gap: $spacing-md;
+    }
+
+    &__aside {
+        height: 100%;
+        padding-left: $spacing-md;
+
+        @include media($breakpoints-tablet) {
+            padding-left: 0;
+            width: 100%;
+        }
+    }
+
+    &__sticky-container {
+        position: sticky;
+        top: $spacing-lg;
+
+        @include media($breakpoints-tablet) {
+            position: static;
+        }
+    }
+
+    &__link-container {
+        margin-bottom: $spacing-md;
+
+        @include media($breakpoints-tablet) {
+            margin-bottom: $spacing-sm;
+        }
+    }
+
+    &__link {
+        color: $accent-color;
+        font-weight: $font-weight-medium;
+        text-decoration: none;
+        transition: $transition;
+        font-size: $font-size-text-medium;
+
+        &::before {
+            content: "←";
+            display: inline-block;
+            transition: $transition;
+            margin-right: $spacing-xs;
+        }
+
+        @include hover {
+            &:hover {
+                color: darken($accent-color, 10%);
+
+                &::before {
+                    transform: translateX(-3px);
+                }
+            }
+        }
+
+        @include media($breakpoints-mobile) {
+            font-size: $font-size-text-small;
+        }
+    }
+
+    &__event-card {
+        background-color: $white-color;
+        border-radius: $border-radius-large;
+        box-shadow: $shadow-md;
+        padding: $spacing-md;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-md;
+
+        @include media($breakpoints-tablet) {
+            padding: $spacing-sm;
+            gap: $spacing-sm;
+        }
+    }
+
+    &__date {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: $spacing-sm;
+        border-bottom: 2px solid rgba($accent-color, 0.2);
+    }
+
+    &__date-number {
+        font-size: 3.5rem;
+        font-weight: $font-weight-bold;
+        color: $accent-color;
+        line-height: 1;
+
+        @include media($breakpoints-tablet) {
+            font-size: 2.5rem;
+        }
+    }
+
+    &__date-month {
+        font-size: $font-size-text-large;
+        color: $main-text-color;
+
+        @include media($breakpoints-tablet) {
+            font-size: $font-size-text;
+        }
+    }
+
+    &__details {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-sm;
+    }
+
+    &__detail-item {
+        display: flex;
+        align-items: center;
+        gap: $spacing-sm;
+        color: $main-text-color;
+        font-size: $font-size-text;
+
+        @include media($breakpoints-mobile) {
+            font-size: $font-size-text-small;
+        }
+    }
+
+    &__detail-icon {
+        color: $accent-color;
+        font-size: 1.2em;
+        min-width: 20px;
+        text-align: center;
+    }
+
+    &__button {
+        width: 100%;
+        padding: $spacing-sm;
+        font-weight: $font-weight-medium;
+        text-align: center;
+        transition: $transition;
+        margin-top: $spacing-sm;
+
+        @include hover {
+            &:hover {
+                transform: translateY(-3px);
+                box-shadow: $shadow-lg;
+            }
+        }
+    }
+
+    &__counter {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $spacing-sm;
+        margin-top: $spacing-sm;
+
+        @include media($breakpoints-mobile) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__counter-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: $spacing-sm;
+        background-color: rgba($main-color, 0.05);
+        border-radius: $border-radius-medium;
+        transition: $transition;
+
+        @include hover {
+            &:hover {
+                background-color: rgba($main-color, 0.1);
+            }
+        }
+    }
+
+    &__counter-number {
+        font-size: $font-size-h3;
+        font-weight: $font-weight-bold;
+        color: $main-color;
+    }
+
+    &__counter-label {
+        font-size: $font-size-text-small;
+        color: $main-text-color;
+        text-align: center;
+    }
+
+    &__content {
+        background-color: $white-color;
+        border-radius: $border-radius-large;
+        box-shadow: $shadow-md;
+        padding: $spacing-lg;
+
+        @include media($breakpoints-tablet) {
+            padding: $spacing-md;
+        }
+
+        @include media($breakpoints-mobile) {
+            padding: $spacing-sm;
+        }
+    }
+
+    &__cta {
+        margin-top: $spacing-xl;
+        padding: $spacing-lg;
+        background: $gradient-primary;
+        border-radius: $border-radius-large;
+        color: $white-text-color;
+        text-align: center;
+
+        @include media($breakpoints-tablet) {
+            padding: $spacing-md;
+            margin-top: $spacing-lg;
+        }
+    }
+
+    &__cta-title {
+        font-size: $font-size-h3;
+        font-weight: $font-weight-bold;
+        margin-bottom: $spacing-md;
+
+        @include media($breakpoints-mobile) {
+            font-size: $font-size-text-large;
+            margin-bottom: $spacing-sm;
+        }
+    }
+
+    &__cta-text {
+        font-size: $font-size-text;
+        line-height: $line-height-normal;
+        margin-bottom: $spacing-md;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+
+        @include media($breakpoints-mobile) {
+            font-size: $font-size-text-small;
+        }
+    }
+
+    &__cta-button {
+        padding: $spacing-sm $spacing-lg;
+        background-color: $white-color;
+        color: white;
+        font-weight: $font-weight-bold;
+        border: none;
+        border-radius: $border-radius-medium;
+        cursor: pointer;
+        transition: $transition;
+
+        @include hover {
+            &:hover {
+                transform: translateY(-3px);
+                box-shadow: $shadow-lg;
+                background-color: darken($white-color, 5%);
+            }
+        }
+
+        @include media($breakpoints-mobile) {
+            padding: $spacing-xs $spacing-md;
+        }
+    }
+}
+
+// Стили для контента страницы
+.contentDoors {
+    &__title {
+        color: $main-color;
+        font-size: $font-size-h2;
+        font-weight: $font-weight-bold;
+        margin-bottom: $spacing-md;
+
+        &-h2 {
+            font-size: $font-size-h3;
+            font-weight: $font-weight-semibold;
+            color: $main-color;
+            margin-top: $spacing-lg;
+            margin-bottom: $spacing-sm;
+
+            @include media($breakpoints-mobile) {
+                font-size: $font-size-text-large;
+            }
+        }
+    }
+
+    &__description {
+        font-size: $font-size-text;
+        line-height: $line-height-normal;
+        color: $main-text-color;
+        margin-bottom: $spacing-md;
+
+        @include media($breakpoints-mobile) {
+            font-size: $font-size-text-small;
+        }
+    }
+
+    &__img {
+        max-width: 100%;
+        height: auto;
+        border-radius: $border-radius-medium;
+        margin: $spacing-md 0;
+        box-shadow: $shadow-sm;
+    }
+
+    &__text {
+        font-size: $font-size-text;
+        line-height: $line-height-normal;
+        color: $main-text-color;
+
+        @include media($breakpoints-mobile) {
+            font-size: $font-size-text-small;
+        }
+    }
+
+    &__experts {
+        margin-top: $spacing-lg;
+    }
+
+    &__subtitle {
+        font-size: $font-size-text-large;
+        font-weight: $font-weight-semibold;
+        color: $main-color;
+        margin-bottom: $spacing-sm;
+
+        @include media($breakpoints-mobile) {
+            font-size: $font-size-text-medium;
+        }
+    }
+
+    &__list {
+        padding-left: $spacing-md;
+        margin-bottom: $spacing-md;
+
+        li {
+            margin-bottom: $spacing-xs;
+
+            &::marker {
+                color: $accent-color;
+                font-size: 1.3rem;
+            }
+        }
+    }
+}
+
+.success-message {
+    text-align: center;
+    padding: $spacing-md;
+
+    p {
+        @include font($font-size-text, $font-weight-regular, $main-text-color);
+        margin-bottom: $spacing-md;
+        line-height: $line-height-normal;
+    }
+}
+
+.error-message {
+    @include font($font-size-text-small, $font-weight-medium, $error-color);
+    padding: $spacing-sm;
+    border-radius: $border-radius-small;
+    background-color: rgba($error-color, 0.1);
+    margin-top: $spacing-sm;
+}

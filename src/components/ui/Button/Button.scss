@@ -1,0 +1,125 @@
+@use "../../../assets/styles/variables" as *;
+@use "../../../assets/styles/mixins" as *;
+
+.button {
+  @include font($font-size-text, $font-weight-medium, $white-text-color);
+  @include flex(row, center, center);
+  cursor: pointer;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $border-radius-large;
+  border: none;
+  text-align: center;
+  outline: none;
+  transition: all 0.3s ease;
+
+  &--primary {
+    background: $gradient-primary;
+
+    @include hover {
+      filter: brightness(0.9);
+    }
+  }
+
+  &--secondary {
+    background: $gradient-secondary;
+
+    @include hover {
+      filter: brightness(0.9);
+    }
+  }
+
+  &--blue {
+    background: $gradient-blue;
+
+    @include hover {
+      filter: brightness(0.9);
+    }
+  }
+
+  &--gold {
+    background: $gradient-gold;
+
+    @include hover {
+      filter: brightness(0.9);
+    }
+  }
+
+  &--green {
+    background: $gradient-green;
+
+    @include hover {
+      filter: brightness(0.9);
+    }
+  }
+
+  &--accent {
+    background: $accent-color;
+    border: 3px solid $accent-color;
+
+    @include hover {
+      background: transparent;
+      color: $accent-color;
+    }
+  }
+
+  &--main {
+    background: $main-color;
+    border: 3px solid $main-color;
+
+    @include hover {
+      background: transparent;
+      color: $main-color !important;
+    }
+  }
+
+  &--border-accent {
+    border: 3px solid $accent-color;
+
+    @include hover {
+      background: $accent-color;
+      color: $white-text-color !important;
+    }
+  }
+
+  &--border-main {
+    border: 3px solid $main-color;
+    color: black;
+
+    @include hover {
+      background: $main-color;
+      color: $white-text-color;
+    }
+  }
+
+  &:disabled {
+    background: $disabled-color;
+    color: rgba($white-text-color, 0.7);
+    cursor: not-allowed;
+    border-color: transparent;
+
+    @include hover {
+      background: $disabled-color;
+      color: rgba($white-text-color, 0.7);
+      border-color: transparent;
+    }
+  }
+}
+
+.button-with-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  &::after {
+    content: "→";
+    display: inline-block;
+    margin-left: 4px;
+    transition: transform 0.3s ease;
+  }
+
+  @include hover {
+    ::after {
+      transform: translateX(6px);
+    }
+  }
+}

@@ -1,0 +1,283 @@
+@use "../../assets/styles/variables" as *;
+@use "../../assets/styles/mixins" as *;
+
+.documents-page {
+    width: 100%;
+    padding-bottom: $spacing-xl * 2;
+}
+
+.documents-container {
+    @include container($container-width, $padding-container);
+    padding-top: $spacing-lg;
+}
+
+.documents-search {
+    margin-bottom: $spacing-xl;
+
+    &__wrapper {
+        position: relative;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    &__icon {
+        position: absolute;
+        left: $spacing-md;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $accent-color;
+        font-size: 1.2rem;
+    }
+
+    &__input {
+        width: 100%;
+        padding: $spacing-md $spacing-md $spacing-md $spacing-xl;
+        border: 2px solid rgba($accent-color, 0.2);
+        border-radius: $border-radius-large;
+        font-size: $font-size-text;
+        color: $main-text-color;
+        transition: $transition;
+
+        &:focus {
+            outline: none;
+            border-color: $accent-color;
+            box-shadow: 0 0 0 3px rgba($accent-color, 0.1);
+        }
+
+        &::placeholder {
+            color: rgba($main-text-color, 0.5);
+        }
+    }
+}
+
+.documents-section {
+    margin-bottom: $spacing-xl;
+    background-color: $white-color;
+    border-radius: $border-radius-medium;
+    box-shadow: $shadow-sm;
+    overflow: hidden;
+
+    &__header {
+        padding: $spacing-md $spacing-lg;
+        background-color: $main-color;
+        color: $white-text-color;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: $transition;
+
+        &:hover {
+            background-color: darken($main-color, 5%);
+        }
+    }
+
+    &__title {
+        font-size: $font-size-h3;
+        font-weight: $font-weight-semibold;
+        margin: 0;
+
+        @include media($breakpoints-tablet) {
+            font-size: $font-size-h4;
+        }
+
+        @include media($breakpoints-mobile) {
+            font-size: $font-size-text-large;
+        }
+    }
+
+    &__icon {
+        font-size: 1.2rem;
+        transition: $transition;
+    }
+
+    &__subtitle {
+        padding: $spacing-sm $spacing-lg;
+        margin: 0;
+        background-color: rgba($main-color, 0.05);
+        font-style: italic;
+        border-bottom: 1px solid rgba($main-color, 0.1);
+    }
+}
+
+.documents-list {
+    padding: $spacing-md;
+
+    @include media($breakpoints-mobile) {
+        padding: $spacing-sm;
+    }
+}
+
+.document-card {
+    display: flex;
+    align-items: flex-start;
+    padding: $spacing-md;
+    border-radius: $border-radius-medium;
+    background-color: $white-color;
+    margin-bottom: $spacing-md;
+    border: 1px solid rgba($main-color, 0.1);
+    transition: $transition;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @include hover {
+        &:hover {
+            box-shadow: $shadow-md;
+            border-color: rgba($accent-color, 0.3);
+
+            .document-card__title {
+                color: $accent-color;
+            }
+
+            .document-card__icon {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    &--unavailable {
+        opacity: 0.7;
+        cursor: not-allowed;
+
+        @include hover {
+            &:hover {
+                box-shadow: none;
+                border-color: rgba($main-color, 0.1);
+
+                .document-card__title {
+                    color: $main-text-color;
+                }
+
+                .document-card__icon {
+                    transform: none;
+                }
+            }
+        }
+    }
+
+    &--new {
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 50px 50px 0 0;
+            border-color: $accent-color transparent transparent transparent;
+            z-index: 1;
+        }
+    }
+
+    &__icon-wrapper {
+        flex-shrink: 0;
+        width: 50px;
+        height: 50px;
+        background-color: rgba($accent-color, 0.1);
+        border-radius: $border-radius-small;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: $spacing-md;
+    }
+
+    &__icon {
+        color: $accent-color;
+        font-size: 1.5rem;
+        transition: $transition;
+    }
+
+    &__content {
+        flex: 1;
+    }
+
+    &__title {
+        font-size: $font-size-text-medium;
+        font-weight: $font-weight-medium;
+        color: $main-text-color;
+        margin: 0 0 $spacing-xs 0;
+        display: flex;
+        align-items: center;
+
+        @include media($breakpoints-mobile) {
+            font-size: $font-size-text;
+        }
+    }
+
+    &__badge {
+        background-color: $accent-color;
+        color: $white-text-color;
+        font-size: $font-size-text-small;
+        font-weight: $font-weight-medium;
+        padding: 2px $spacing-xs;
+        border-radius: $border-radius-small;
+        margin-left: $spacing-xs;
+    }
+
+    &__description {
+        font-size: $font-size-text-small;
+        color: rgba($main-text-color, 0.7);
+        margin: 0 0 $spacing-xs 0;
+    }
+
+    &__year {
+        display: inline-block;
+        font-size: $font-size-text-small;
+        font-weight: $font-weight-semibold;
+        color: $white-text-color;
+        background-color: $main-color;
+        padding: 2px $spacing-xs;
+        border-radius: $border-radius-small;
+    }
+}
+
+.documents-empty {
+    text-align: center;
+    padding: $spacing-xl;
+    background-color: rgba($main-color, 0.05);
+    border-radius: $border-radius-medium;
+
+    p {
+        font-size: $font-size-text-large;
+        color: $main-text-color;
+        margin-bottom: $spacing-md;
+    }
+
+    &__button {
+        background-color: $accent-color;
+        color: $white-text-color;
+        border: none;
+        padding: $spacing-sm $spacing-lg;
+        border-radius: $border-radius-medium;
+        font-size: $font-size-text;
+        font-weight: $font-weight-medium;
+        cursor: pointer;
+        transition: $transition;
+
+        &:hover {
+            background-color: darken($accent-color, 10%);
+        }
+    }
+}
+
+@media (max-width: $breakpoints-mobile) {
+    .document-card {
+        flex-direction: column;
+
+        &__icon-wrapper {
+            margin-right: 0;
+            margin-bottom: $spacing-sm;
+        }
+
+        &__title {
+            padding-right: 0;
+        }
+    }
+}

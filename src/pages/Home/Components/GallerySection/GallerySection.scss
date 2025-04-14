@@ -1,0 +1,325 @@
+@use "../../../../assets/styles/variables" as *;
+@use "../../../../assets/styles/mixins" as *;
+
+.gallery-section {
+  padding: $padding-container-small 0;
+  background-color: $second-background-color;
+  overflow: hidden;
+
+  &__container {
+    @include section-container;
+    max-width: $container-width;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-md;
+
+    @include media($breakpoints-tablet) {
+      margin-bottom: $spacing-lg;
+    }
+  }
+
+  &__title {
+    @include font($font-size-h2, $font-weight-bold, $main-color);
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -$spacing-sm;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 4px;
+      background: linear-gradient(90deg, $accent-color, $main-color);
+      border-radius: $border-radius-small / 2;
+    }
+
+    @include media($breakpoints-tablet) {
+      font-size: $font-size-h3;
+    }
+
+    @include media($breakpoints-mobile) {
+      font-size: $font-size-h4;
+    }
+  }
+
+  &__slider {
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 $spacing-md;
+
+    @include media($breakpoints-mobile) {
+      padding: 0;
+    }
+
+    .swiper {
+      padding: $spacing-sm 0;
+      margin-bottom: $spacing-lg;
+      overflow: visible;
+    }
+  }
+
+  &__slide {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  &__row {
+    display: flex;
+    gap: $spacing-sm;
+    width: 100%;
+
+    @include media($breakpoints-mobile) {
+      gap: $spacing-xs;
+    }
+  }
+
+  &__item {
+    position: relative;
+    overflow: hidden;
+    border-radius: $border-radius-medium;
+    box-shadow: $shadow-md;
+    transition: $transition;
+    aspect-ratio: 16/9;
+    flex-shrink: 0;
+    cursor: pointer;
+
+    &--large {
+      flex: 2;
+    }
+
+    &--medium {
+      flex: 1;
+    }
+
+    @include hover {
+      transform: translateY(-5px);
+      box-shadow: $shadow-lg;
+
+      .gallery-section__image {
+        transform: scale(1.1);
+      }
+    }
+
+    @include media($breakpoints-mobile) {
+      border-radius: $border-radius-small;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  &__navigation {
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+    display: flex;
+    gap: $spacing-sm;
+    z-index: 10;
+
+    @include media($breakpoints-mobile) {
+      position: relative;
+      justify-content: center;
+      bottom: auto;
+      right: auto;
+      margin-top: $spacing-xl;
+    }
+  }
+
+  &__nav-prev,
+  &__nav-next {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: $white-color;
+    border: none;
+    @include flex(row, center, center);
+    color: $main-color;
+    cursor: pointer;
+    box-shadow: $shadow-md;
+    transition: $transition;
+    font-size: $font-size-text;
+    font-weight: $font-weight-bold;
+
+    @include hover {
+      background-color: $accent-color;
+      color: $white-text-color;
+      transform: translateY(-2px);
+      box-shadow: $shadow-lg;
+    }
+
+    @include media($breakpoints-mobile) {
+      width: 36px;
+      height: 36px;
+    }
+  }
+}
+
+.swiper-pagination {
+  bottom: -$spacing-lg !important;
+}
+
+.swiper-pagination-bullet {
+  width: 8px !important;
+  height: 8px !important;
+  background-color: $main-color !important;
+  opacity: 0.3 !important;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  background-color: $accent-color !important;
+}
+
+.fullscreen-gallery {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($main-color, 0.95);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+  overflow: hidden;
+  touch-action: none;
+
+  &--active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: $white-color;
+    border: none;
+    @include flex(row, center, center);
+    color: $main-color;
+    cursor: pointer;
+    box-shadow: $shadow-md;
+    transition: $transition;
+    font-size: $font-size-h4;
+    z-index: 10;
+
+    @include hover {
+      background-color: $accent-color;
+      color: $white-text-color;
+    }
+  }
+
+  &__container {
+    width: 90%;
+    height: 90%;
+    max-width: 1400px;
+    position: relative;
+  }
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    .swiper-wrapper {
+      align-items: center;
+    }
+
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__image {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: $border-radius-medium;
+
+    @include media($breakpoints-tablet) {
+      max-height: 70vh;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+
+    @include media($breakpoints-mobile) {
+      max-height: 60vh;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+  }
+
+  &__navigation {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: $spacing-md;
+    z-index: 10;
+  }
+
+  &__nav-prev,
+  &__nav-next {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba($white-color, 0.2);
+    border: none;
+    @include flex(row, center, center);
+    color: $white-color;
+    cursor: pointer;
+    transition: $transition;
+    font-size: $font-size-h4;
+    
+    @include hover {
+      background-color: rgba($white-color, 0.4);
+    }
+  }
+}
+
+body.no-scroll,
+html.no-scroll {
+  overflow: hidden !important;
+  touch-action: none !important;
+  -webkit-overflow-scrolling: none;
+  overscroll-behavior: none;
+  position: fixed;
+  width: 100%;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+html.no-scroll {
+  overflow: hidden;
+}

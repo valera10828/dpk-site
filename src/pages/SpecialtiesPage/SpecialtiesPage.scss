@@ -1,0 +1,69 @@
+@use "../../assets/styles/variables" as *;
+@use "../../assets/styles/mixins" as *;
+
+.speciality-page {
+    width: 100%;
+    background-color: $white-color;
+    position: relative;
+
+
+    &__hero-section {
+        margin-bottom: $margin-block;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 1px;
+            background: $gradient-primary;
+            opacity: 0.3;
+        }
+    }
+
+    &__info-section {
+        margin-bottom: $margin-block;
+        position: relative;
+        z-index: 1;
+
+    }
+
+    &__highlights-section {
+        margin-bottom: $margin-block;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 1px;
+            background: $gradient-secondary;
+            opacity: 0.3;
+        }
+    }
+
+    @include media($breakpoints-mobile) {
+
+        &__hero-section::after,
+        &__highlights-section::before {
+            width: 80%;
+        }
+    }
+
+    @media print {
+        background-color: white;
+
+        &::before,
+        &__hero-section::after,
+        &__info-section::before,
+        &__highlights-section::before {
+            display: none;
+        }
+    }
+}

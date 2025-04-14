@@ -1,0 +1,130 @@
+@use "../../../assets/styles/variables" as *;
+@use "../../../assets/styles/mixins" as *;
+
+.introductory-text {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: $spacing-lg $spacing-md;
+    background-color: white;
+    border-radius: $border-radius-large;
+    box-shadow: $shadow-md;
+
+    @include media($breakpoints-tablet) {
+        padding: $spacing-md $spacing-sm;
+    }
+
+    @include media($breakpoints-mobile) {
+        padding: $spacing-sm;
+    }
+
+    &__title {
+        color: $main-color;
+        font-size: $font-size-h1;
+        font-weight: $font-weight-bold;
+        text-align: center;
+        margin-bottom: $spacing-sm;
+
+        @include media($breakpoints-mobile) {
+            font-size: $font-size-h2;
+        }
+    }
+
+    &__subtitle {
+        color: $accent-color;
+        font-size: $font-size-h2;
+        font-weight: $font-weight-medium;
+        text-align: center;
+        margin-bottom: $spacing-lg;
+
+        @include media($breakpoints-mobile) {
+            font-size: $font-size-h3;
+            margin-bottom: $spacing-md;
+        }
+    }
+
+    &__section {
+        margin-bottom: $spacing-lg;
+
+        @include media($breakpoints-mobile) {
+            margin-bottom: $spacing-md;
+        }
+    }
+
+    &__section-title {
+        display: flex;
+        align-items: center;
+        font-size: $font-size-h3;
+        color: $main-color;
+        font-weight: $font-weight-bold;
+        margin-bottom: $spacing-sm;
+        padding-bottom: $spacing-xs;
+        border-bottom: 2px solid $accent-color;
+
+        @include media($breakpoints-mobile) {
+            font-size: $font-size-text-large;
+        }
+    }
+
+    &__icon {
+        margin-right: $spacing-xs;
+        font-size: 1.2em;
+    }
+
+    &__paragraph {
+        margin-bottom: $spacing-sm;
+        line-height: $line-height-normal;
+    }
+
+    &__list {
+        list-style-type: none;
+        padding-left: $spacing-md;
+        margin-bottom: $spacing-md;
+
+        li {
+            position: relative;
+            margin-bottom: $spacing-xs;
+            padding-left: $spacing-sm;
+
+            &:before {
+                content: "•";
+                color: $accent-color;
+                position: absolute;
+                left: 0;
+                font-weight: $font-weight-bold;
+            }
+        }
+
+        &--documents {
+            li {
+                margin-bottom: $spacing-sm;
+
+                &:before {
+                    content: "📄";
+                }
+            }
+        }
+    }
+
+    &__document-link {
+        color: $main-color;
+        text-decoration: none;
+        font-weight: $font-weight-medium;
+        transition: $transition;
+
+        @include hover {
+            color: $accent-color;
+            text-decoration: underline;
+        }
+    }
+
+    &__footer {
+        margin-top: $spacing-lg;
+        text-align: center;
+    }
+
+    &__wish {
+        font-size: $font-size-text-large;
+        font-weight: $font-weight-bold;
+        color: $accent-color;
+    }
+}

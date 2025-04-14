@@ -1,0 +1,13 @@
+.to-main-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1400px;
+  margin-inline: auto;
+}
+
+.btm-to-main {
+  text-decoration: none;
+  width: 400px;
+}

@@ -1,0 +1,164 @@
+@use "../../../assets/styles/variables" as *;
+@use "../../../assets/styles/mixins" as *;
+
+.schedule {
+    width: 100%;
+    max-width: 100%;
+    margin: $spacing-lg 0;
+
+    &__title {
+        @include title;
+        text-align: center;
+        margin-bottom: $spacing-lg;
+        color: $main-color;
+    }
+
+    &__table-container {
+        width: 100%;
+        overflow-x: auto;
+        box-shadow: $shadow-md;
+        border-radius: $border-radius-medium;
+        margin-bottom: $spacing-lg;
+    }
+
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: $white-color;
+
+        th,
+        td {
+            padding: $spacing-md;
+            text-align: left;
+            border-bottom: $border-width solid $secondary-color-light;
+
+            @include media($breakpoints-tablet) {
+                padding: $spacing-sm;
+            }
+
+            @include media($breakpoints-mobile) {
+                padding: $spacing-xs;
+            }
+        }
+
+        th {
+            background-color: $main-color;
+            color: $white-text-color;
+            font-weight: $font-weight-semibold;
+            text-transform: uppercase;
+            font-size: $font-size-text-small;
+            letter-spacing: 0.5px;
+
+            &:first-child {
+                border-top-left-radius: $border-radius-medium;
+            }
+
+            &:last-child {
+                border-top-right-radius: $border-radius-medium;
+            }
+        }
+
+        tr {
+            transition: $transition;
+
+            @include hover {
+                &:hover {
+                    background-color: rgba($accent-color, 0.05);
+                }
+            }
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+
+            &:first-child {
+                border-bottom-left-radius: $border-radius-medium;
+            }
+
+            &:last-child {
+                border-bottom-right-radius: $border-radius-medium;
+            }
+        }
+    }
+
+    &__row {
+        &--even {
+            background-color: rgba($secondary-color, 0.3);
+        }
+
+        &--odd {
+            background-color: $white-color;
+        }
+    }
+
+    // Адаптивная таблица для мобильных устройств
+    @include media($breakpoints-tablet) {
+        &__table {
+            border: 0;
+
+            thead {
+                border: none;
+                clip: rect(0 0 0 0);
+                height: 1px;
+                margin: -1px;
+                overflow: hidden;
+                padding: 0;
+                position: absolute;
+                width: 1px;
+            }
+
+            tr {
+                display: block;
+                margin-bottom: $spacing-md;
+                border: $border-width solid $secondary-color-light;
+                border-radius: $border-radius-medium;
+                box-shadow: $shadow-sm;
+            }
+
+            td {
+                display: block;
+                font-size: $font-size-text-small;
+                text-align: right;
+                position: relative;
+                padding-left: 50%;
+                border-bottom: $border-width solid $secondary-color-light;
+
+                &:before {
+                    content: attr(data-label);
+                    position: absolute;
+                    left: $spacing-sm;
+                    width: 45%;
+                    padding-right: $spacing-xs;
+                    white-space: nowrap;
+                    text-align: left;
+                    font-weight: $font-weight-bold;
+                    color: $main-color;
+                }
+
+                &:last-child {
+                    border-bottom: 0;
+                }
+            }
+        }
+
+        &__row--even,
+        &__row--odd {
+            background-color: $white-color;
+        }
+    }
+
+    // Дополнительные стили для еще меньших экранов
+    @include media($breakpoints-mobile) {
+        &__table {
+            td {
+                font-size: $font-size-text-small;
+                padding: $spacing-xs $spacing-sm;
+                padding-left: 45%;
+
+                &:before {
+                    left: $spacing-xs;
+                }
+            }
+        }
+    }
+}

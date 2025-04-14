@@ -1,0 +1,50 @@
+@use "../../../assets/styles/variables" as *;
+@use "../../../assets/styles/mixins" as *;
+
+.page-transition {
+  position: relative;
+  
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: $main-color;
+    transform: scaleY(0);
+    z-index: 9999;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    
+    @include media($breakpoints-tablet) {
+      display: none;
+    }
+  }
+  
+  &__text {
+    color: $white-color;
+    font-size: 2.5rem;
+    font-weight: 700;
+    opacity: 0;
+    transform: translateY(30px);
+    text-align: center;
+    
+    @include media($breakpoints-mobile) {
+      font-size: 1.5rem;
+    }
+  }
+  
+  &__flying-section {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(90deg, $accent-color, $main-color);
+    transform: skewY(-5deg);
+    opacity: 0;
+  }
+}

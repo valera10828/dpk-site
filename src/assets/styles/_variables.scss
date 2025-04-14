@@ -1,0 +1,151 @@
+// ======================
+// Основные цвета проекта
+// ======================
+$main-color: #14315f;
+$accent-color: #009b77;
+$main-background-color: #fff;
+$second-background-color: #f2f2f2;
+$auxiliary-color: #7b99b6;
+$signatures-color: #205449;
+$main-text-color: #33363a;
+$white-text-color: #fff;
+$second-text-color: #b1b1b1;
+$white-color: #fff;
+$text-color: #33363a;
+$text-color-light: #b1b1b1;
+$secondary-color: #f2f2f2;
+$secondary-color-light: #e5e5e5;
+// ======================
+// Состояния и статусы
+// ======================
+$active-color: #009b77;
+$disabled-color: #7b99b6;
+$error-color: #dc3545;
+// ======================
+// Градиент
+// ======================
+$background-main-gradient: linear-gradient(187deg, #009b77 0%, #003529 85.71%);
+$background-main-gradient-reverse: linear-gradient(187deg, #003529 0%, #009b77 85.71%);
+$background-greenBlack-gradient: linear-gradient(215deg, #009b77 17.78%, #14315f 88.77%);
+$background-black-gradient: linear-gradient(155deg, #14315f 29.47%, #2966c5 100%);
+// ======================
+// Градиент кнопок
+// ======================
+$gradient-primary: linear-gradient(187deg, #009b77 0%, #003529 85.71%);
+$gradient-secondary: linear-gradient(155deg, #14315f 29.47%, #2966c5 100%);
+$gradient-blue: linear-gradient(215deg, #009b77 17.78%, #14315f 88.77%);
+$gradient-gold: linear-gradient(157deg, #009b77 14.49%, #6ba557 64.9%, #d4af37 88.77%);
+$gradient-green: linear-gradient(185deg, #009b77 0%, #205449 100%);
+// ======================
+// Шрифты
+// ======================
+$font-family: "Inter", sans-serif;
+// ======================
+// Жирные шрифты
+// ======================
+$font-weight-bold: 700;
+$font-weight-semibold: 600;
+$font-weight-medium: 500;
+$font-weight-regular: 400;
+$font-weight-light: 300;
+// ======================
+// Размеры шрифтов
+// ======================
+$font-size-h1: 3rem;
+$font-size-h2: 2.25rem;
+$font-size-h3: 1.5rem;
+$font-size-h4: 1.25rem;
+$font-size-text: 1.1rem;
+$font-size-text-large: 1.3rem;
+$font-size-text-medium: 1.125rem;
+$font-size-text-small: 0.875rem;
+// ======================
+// Размеры контейнеров
+// ======================
+$container-width: 1200px;
+$media-container-width-large: 1000px;
+$media-container-width-medium: 800px;
+$media-container-width-small: 600px;
+// ======================
+// Размеры отступов
+// ======================
+$padding-container: 15px;
+$padding-container-small: 10px;
+$padding-container-medium: 30px;
+$padding-container-large: 60px;
+// ======================
+// Тени
+// ======================
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+// ======================
+// Переходы
+// ======================
+$transition: all 0.3s ease-in-out;
+$transition-fast: all 0.1s ease-in-out;
+$transition-slow: all 0.5s ease-in-out;
+// ======================
+// Размеры медиа-запросов
+// ======================
+$breakpoints-mobile:  450px;
+$breakpoints-tablet:  768px;
+$breakpoints-tablet-landscape:  990px;
+$breakpoints-desktop: 1024px;
+
+// ======================
+// Z-index система
+// ======================
+$z-index-background: -1;
+$z-index-normal: 100;
+$z-index-middle: 500;
+$z-index-top: 1000;
+$z-index-modal: 9999;
+// ======================
+// Размер высоты линий
+// ======================
+$line-height-tight: 1.25;
+$line-height-normal: 1.5;
+$line-height-loose: 1.75;
+// ======================
+// Ширина обводки
+// ======================
+$border-width: 1px;
+$border-width-medium: 2px;
+$border-width-large: 3px;
+// ======================
+// grid
+// ======================
+$grid-gap-cards: 1.5rem;
+$grid-gap-photos: 1rem;
+// ======================
+// Отступы между элементами
+// ======================
+$margin-block: 4rem;
+$margin-block-child: 2rem;
+$margin-inline: 1rem;
+$margin-inline-child: 0.5rem;
+// ======================
+// border-radius
+// ======================
+$border-radius-small: 5px;
+$border-radius-medium: 10px;
+$border-radius-large: 15px;
+$border-radius-circle: 50%;
+// ======================
+// Spacing система
+// ======================
+$spacing-unit: 8px;
+$spacing-xs: $spacing-unit;
+$spacing-sm: $spacing-unit * 2;
+$spacing-md: $spacing-unit * 3;
+$spacing-lg: $spacing-unit * 4;
+$spacing-xl: $spacing-unit * 5;
+// ======================
+// Прозрачность
+// ======================
+$opacity-0: 0;
+$opacity-25: 0.25;
+$opacity-50: 0.5;
+$opacity-75: 0.75;
+$opacity-100: 1;

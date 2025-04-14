@@ -1,0 +1,120 @@
+@use "../../../assets/styles/variables" as *;
+@use "../../../assets/styles/mixins" as *;
+
+.college-history {
+  padding: $spacing-xl 0;
+  background-color: $main-background-color;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -10%;
+    width: 50%;
+    height: 100%;
+    background-color: $second-background-color;
+    transform: skewX(-15deg);
+    z-index: 0;
+    opacity: 0.5;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__title {
+    @include font($font-size-h2, $font-weight-bold, $main-color);
+    margin: 0 0 $spacing-lg 0;
+    text-align: center;
+    position: relative;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -$spacing-sm;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: $gradient-primary;
+      border-radius: $border-radius-small;
+    }
+  }
+
+  &__text-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-lg;
+    margin-bottom: $spacing-xl;
+
+    @include media($breakpoints-tablet) {
+      grid-template-columns: 1fr;
+      gap: $spacing-md;
+    }
+  }
+
+  &__column {
+    p {
+      @include font($font-size-text, $font-weight-regular, $main-text-color);
+      margin: 0 0 $spacing-md 0;
+      line-height: $line-height-normal;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__stats {
+    display: flex;
+    justify-content: space-between;
+    gap: $spacing-lg;
+    margin-top: $spacing-xl;
+    padding: $spacing-lg;
+    background: linear-gradient(135deg, rgba($accent-color, 0.1) 0%, rgba($main-color, 0.1) 100%);
+    border-radius: $border-radius-medium;
+    box-shadow: $shadow-sm;
+
+    @include media($breakpoints-tablet) {
+      flex-direction: column;
+      align-items: center;
+      gap: $spacing-md;
+    }
+  }
+
+  &__stat-item {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $spacing-md;
+    transition: $transition;
+
+    @include hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  &__stat-number {
+    @include font(3rem, $font-weight-bold, $accent-color);
+    margin-bottom: $spacing-xs;
+    
+    @include media($breakpoints-mobile) {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__stat-description {
+    @include font($font-size-text-small, $font-weight-medium, $main-text-color);
+    max-width: 150px;
+    
+    @include media($breakpoints-mobile) {
+      max-width: none;
+      width: 100%;
+    }
+  }
+}

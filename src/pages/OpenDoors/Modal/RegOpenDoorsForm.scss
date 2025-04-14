@@ -1,0 +1,127 @@
+@use "../../../assets/styles/variables" as *;
+@use "../../../assets/styles/mixins" as *;
+
+.modal-title {
+    @include font($font-size-h2, $font-weight-bold, $main-color);
+    margin-bottom: $spacing-lg;
+    text-align: center;
+}
+
+.application-form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+}
+
+.form-label {
+    @include font($font-size-text, $font-weight-medium, $main-text-color);
+}
+
+.form-input {
+    padding: $spacing-sm;
+    border: $border-width solid $secondary-color-light;
+    border-radius: $border-radius-small;
+    font-family: $font-family;
+    @include font($font-size-text, $font-weight-regular, $main-text-color);
+    transition: $transition;
+
+    &:focus {
+        outline: none;
+        border-color: $accent-color;
+        box-shadow: 0 0 0 2px rgba($accent-color, $opacity-25);
+    }
+
+    &::placeholder {
+        color: $text-color-light;
+    }
+}
+
+.radio-group {
+    display: flex;
+    gap: $spacing-lg;
+}
+
+.radio-label,
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    cursor: pointer;
+}
+
+.radio-input,
+.checkbox-input {
+    cursor: pointer;
+    accent-color: $accent-color;
+    width: 18px;
+    height: 18px;
+}
+
+.radio-text,
+.checkbox-text {
+    @include font($font-size-text-small, $font-weight-regular, $main-text-color);
+}
+
+.checkbox-group {
+    margin-top: $spacing-sm;
+}
+
+.checkbox-text {
+    line-height: $line-height-normal;
+}
+
+.form-link {
+    color: $accent-color;
+    text-decoration: none;
+    transition: $transition;
+    margin: 0 $spacing-xs;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.form-submit {
+    margin-top: $spacing-md;
+    align-self: center;
+    padding: $spacing-sm $spacing-xl;
+    background: $gradient-green;
+    transition: $transition;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: $shadow-md;
+    }
+}
+
+.success-message {
+    text-align: center;
+    padding: $spacing-md;
+
+    p {
+        @include font($font-size-text, $font-weight-regular, $main-text-color);
+        margin-bottom: $spacing-md;
+        line-height: $line-height-normal;
+    }
+}
+
+.error-message {
+    @include font($font-size-text-small, $font-weight-medium, $error-color);
+    padding: $spacing-sm;
+    border-radius: $border-radius-small;
+    background-color: rgba($error-color, 0.1);
+    margin-top: $spacing-sm;
+}
+
+@media (max-width: $breakpoints-mobile) {
+    .radio-group {
+        flex-direction: column;
+        gap: $spacing-sm;
+    }
+}

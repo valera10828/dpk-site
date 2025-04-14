@@ -1,0 +1,287 @@
+@use "../../assets/styles/variables" as *;
+@use "../../assets/styles/mixins" as *;
+
+.timetable-page {
+    width: 100%;
+    background-color: $white-color;
+}
+
+.timetable-container {
+    @include container($container-width, $padding-container);
+    padding-top: $spacing-lg;
+    padding-bottom: $spacing-xl;
+
+    @include media($breakpoints-tablet) {
+        padding-top: $spacing-md;
+        padding-bottom: $spacing-lg;
+    }
+}
+
+.timetable-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: $spacing-lg;
+    padding-bottom: $spacing-sm;
+
+
+    @include media($breakpoints-mobile) {
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: $spacing-md;
+    }
+}
+
+.timetable-icon {
+    font-size: 2.5rem;
+    color: $accent-color;
+    margin-right: $spacing-md;
+
+    @include media($breakpoints-mobile) {
+        margin-right: 0;
+        margin-bottom: $spacing-xs;
+        font-size: 2rem;
+    }
+}
+
+.timetable-info {
+    &__title {
+        font-size: $font-size-h2;
+        font-weight: $font-weight-bold;
+        color: $main-color;
+        margin-bottom: $spacing-xs;
+
+        @include media($breakpoints-tablet) {
+            font-size: $font-size-h3;
+        }
+
+        @include media($breakpoints-mobile) {
+            font-size: $font-size-h4;
+        }
+    }
+
+    &__subtitle {
+        font-size: $font-size-text-large;
+        color: $text-color;
+
+        @include media($breakpoints-mobile) {
+            font-size: $font-size-text;
+        }
+    }
+}
+
+.timetable-announcement {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, rgba($main-color, 0.05), rgba($accent-color, 0.05));
+    padding: $spacing-md;
+    border-radius: $border-radius-medium;
+    margin-bottom: $spacing-lg;
+
+    @include media($breakpoints-mobile) {
+        flex-direction: column;
+        text-align: center;
+        padding: $spacing-sm;
+        margin-bottom: $spacing-md;
+    }
+
+    &__icon {
+        font-size: 1.5rem;
+        color: $main-color;
+        margin-right: $spacing-md;
+
+        @include media($breakpoints-mobile) {
+            margin-right: 0;
+            margin-bottom: $spacing-xs;
+        }
+    }
+
+    &__text {
+        font-size: $font-size-text-medium;
+        color: $main-text-color;
+
+        strong {
+            color: $accent-color;
+            font-weight: $font-weight-semibold;
+        }
+
+        @include media($breakpoints-mobile) {
+            font-size: $font-size-text;
+        }
+    }
+}
+
+.timetable-section-title {
+    font-size: $font-size-h3;
+    font-weight: $font-weight-semibold;
+    color: $main-color;
+    text-align: center;
+    margin-bottom: $spacing-md;
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: -$spacing-xs;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: $accent-color;
+        border-radius: $border-radius-small;
+    }
+
+    @include media($breakpoints-tablet) {
+        font-size: $font-size-h4;
+    }
+
+    @include media($breakpoints-mobile) {
+        font-size: $font-size-text-large;
+    }
+}
+
+.timetable-courses {
+    margin-bottom: $spacing-xl;
+
+    @include media($breakpoints-tablet) {
+        margin-bottom: $spacing-lg;
+    }
+
+    @include media($breakpoints-mobile) {
+        margin-bottom: $spacing-md;
+    }
+
+    &__grid {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: $spacing-lg;
+
+        @include media($breakpoints-tablet) {
+            gap: $spacing-md;
+        }
+
+        @include media($breakpoints-mobile) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: $spacing-sm;
+        }
+    }
+
+    &__item {
+        transition: $transition;
+    }
+
+    &__link {
+        text-decoration: none;
+        display: block;
+    }
+}
+
+.timetable-bells {
+    background-color: $white-color;
+    border-radius: $border-radius-large;
+    padding: $spacing-lg;
+    box-shadow: $shadow-sm;
+    margin-bottom: $spacing-lg;
+
+    @include media($breakpoints-mobile) {
+        padding: $spacing-md;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: $spacing-md;
+    }
+
+    &__icon {
+        font-size: 1.5rem;
+        color: $accent-color;
+        margin-right: $spacing-sm;
+
+        @include media($breakpoints-mobile) {
+            font-size: 1.2rem;
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: $spacing-md;
+
+        @include media($breakpoints-tablet) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: $spacing-sm;
+        }
+
+        @include media($breakpoints-mobile) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: $spacing-md;
+        background-color: rgba($main-color, 0.05);
+        border-radius: $border-radius-medium;
+        transition: $transition;
+
+        @include hover {
+            &:hover {
+                background-color: rgba($accent-color, 0.1);
+            }
+        }
+
+        @include media($breakpoints-mobile) {
+            padding: $spacing-sm;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    &__number {
+        font-size: $font-size-h3;
+        font-weight: $font-weight-bold;
+        color: $accent-color;
+        margin-bottom: $spacing-xs;
+
+        @include media($breakpoints-tablet) {
+            font-size: $font-size-h4;
+        }
+
+        @include media($breakpoints-mobile) {
+            margin-bottom: 0;
+            margin-right: $spacing-sm;
+        }
+    }
+
+    &__time {
+        font-size: $font-size-text;
+        color: $main-text-color;
+        font-weight: $font-weight-medium;
+    }
+}
+
+.timetable-note {
+    text-align: center;
+    font-size: $font-size-text-small;
+    color: $text-color-light;
+    font-style: italic;
+}
+
+hr {
+    border-radius: 60px;
+    width: 100%;
+    display: block;
+    background: linear-gradient(to right, white, black, white);
+    height: 3px;
+    margin-bottom: 20px;
+
+    @include media($breakpoints-mobile) {
+        height: 2px;
+        margin-bottom: 15px;
+    }
+}

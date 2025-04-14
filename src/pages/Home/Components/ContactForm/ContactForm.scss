@@ -1,0 +1,221 @@
+@use "../../../../assets/styles/variables" as *;
+@use "../../../../assets/styles/mixins" as *;
+
+.contact-section {
+  padding: $padding-container-large 0;
+  background: linear-gradient(135deg, $secondary-color 0%, $secondary-color-light 100%);
+
+  &__container {
+    @include section-container;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-xl;
+    background: rgba($white-color, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: $border-radius-large;
+    padding: $padding-container-medium;
+    box-shadow:
+      $shadow-md,
+      inset 0 0 0 1px rgba($white-color, 0.5);
+
+    @include media($breakpoints-tablet) {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+      padding: $padding-container;
+    }
+  }
+
+  &__info {
+    padding-right: $spacing-lg;
+
+    @include media($breakpoints-tablet) {
+      padding-right: 0;
+    }
+  }
+
+  &__logo {
+    width: 80px;
+    height: 80px;
+    background: $background-greenBlack-gradient;
+    border-radius: $border-radius-medium;
+    @include flex(row, center, center);
+    margin-bottom: $spacing-lg;
+
+    &-icon {
+      color: $white-color;
+    }
+  }
+
+  &__title {
+    @include font($font-size-h2, $font-weight-bold, $main-color);
+    margin-bottom: $spacing-md;
+  }
+
+  &__description {
+    @include font($font-size-text-medium, $font-weight-regular, $text-color);
+    line-height: $line-height-normal;
+  }
+
+  &__form {
+    @include flex(column, flex-start, stretch);
+    gap: $spacing-md;
+  }
+
+  &__form-group {
+    position: relative;
+  }
+
+  &__input {
+    width: 100%;
+    padding: $spacing-md $spacing-md;
+    background: rgba($white-color, 0.9);
+    border: $border-width solid rgba($main-color, 0.1);
+    border-radius: $border-radius-medium;
+    @include font($font-size-text, $font-weight-regular);
+    transition: $transition;
+
+    &:focus {
+      outline: none;
+      border-color: $accent-color;
+      background: $white-color;
+      box-shadow: 0 0 0 4px rgba($accent-color, 0.1);
+    }
+
+    @include placeholder {
+      color: $text-color-light;
+    }
+  }
+
+  &__checkbox-group {
+    margin-top: $spacing-md;
+  }
+
+  &__checkbox-label {
+    @include flex(row, flex-start, center);
+    gap: $spacing-xs;
+    cursor: pointer;
+  }
+
+  &__checkbox {
+    position: absolute;
+    opacity: 0;
+
+    &:checked + .contact-section__checkbox-custom {
+      background-color: $accent-color;
+      border-color: $accent-color;
+
+      &::after {
+        opacity: 1;
+        transform: rotate(45deg) scale(1);
+      }
+    }
+  }
+
+  &__checkbox-custom {
+    width: 20px;
+    height: 20px;
+    border: $border-width-medium solid $text-color-light;
+    border-radius: $border-radius-small;
+    position: relative;
+    transition: $transition-fast;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 6px;
+      width: 5px;
+      height: 10px;
+      border: solid $white-color;
+      border-width: 0 2px 2px 0;
+      opacity: 0;
+      transform: rotate(45deg) scale(0.8);
+      transition: $transition-fast;
+    }
+  }
+
+  &__checkbox-text {
+    @include font($font-size-text-small, $font-weight-regular, $text-color);
+  }
+
+  &__link {
+    color: $accent-color;
+    text-decoration: underline;
+
+    @include hover {
+      color: darken($accent-color, 10%);
+    }
+  }
+
+  &__submit {
+    margin-top: $spacing-md;
+    padding: $spacing-md $spacing-lg;
+    background: $gradient-green;
+    color: $white-text-color;
+    border-radius: $border-radius-medium;
+    font-weight: $font-weight-medium;
+    @include flex(row, center, center);
+    gap: $spacing-xs;
+    transition: $transition;
+    border: none;
+
+    @include hover {
+      &:not(:disabled) {
+        box-shadow: $shadow-md;
+      }
+    }
+
+    &:disabled {
+      opacity: $opacity-50;
+      cursor: not-allowed;
+    }
+
+    &-arrow {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover &-arrow {
+      transform: translateX(4px);
+    }
+  }
+}
+
+.contact-form-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: $spacing-md 0;
+
+  &__icon {
+    margin-bottom: $spacing-md;
+  }
+
+  &__check {
+    color: $accent-color;
+  }
+
+  &__message {
+    font-size: $font-size-text;
+    color: $main-text-color;
+    margin-bottom: $spacing-lg;
+    line-height: $line-height-normal;
+    max-width: 380px;
+  }
+
+  &__button {
+    background-color: $accent-color;
+    color: $white-text-color;
+    border: none;
+    border-radius: $border-radius-small;
+    padding: $spacing-sm $spacing-xl;
+    font-size: $font-size-text;
+    font-weight: $font-weight-semibold;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      background-color: darken($accent-color, 10%);
+    }
+  }
+}

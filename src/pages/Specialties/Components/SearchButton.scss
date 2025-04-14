@@ -1,0 +1,47 @@
+@use "../../../assets/styles/variables" as *;
+@use "../../../assets/styles/mixins" as *;
+
+.container-search {
+  @include flex();
+  max-width: 800px;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  @include media($breakpoints-tablet-landscape) {
+    max-width: 100%;
+    justify-content: flex-end;
+    padding-inline: 20px;
+  }
+
+  &__button {
+    border-radius: 30px;
+    color: black;
+    
+    &.active {
+      background-color: $accent-color;
+      color: white;
+      transform: scale(1.05);
+    }
+    
+    @include media($breakpoints-tablet-landscape) {
+      display: none;
+    }
+  }
+
+  &__select {
+    display: none;
+    border-radius: 30px;
+    color: black;
+    padding: 8px 15px;
+    border: 1px solid $accent-color;
+    
+    &:focus {
+      outline: none;
+      border-color: $accent-color;
+    }
+
+    @include media($breakpoints-tablet-landscape) {
+      display: block;
+    }
+  }
+}

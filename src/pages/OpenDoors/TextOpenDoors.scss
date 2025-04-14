@@ -1,0 +1,248 @@
+@use "../../assets/styles/variables" as *;
+@use "../../assets/styles/mixins" as *;
+
+.contentDoors {
+    &__header {
+        margin-bottom: $spacing-lg;
+        text-align: center;
+    }
+
+    &__main-title {
+        color: $main-color;
+        font-size: $font-size-h1;
+        font-weight: $font-weight-bold;
+        margin-bottom: $spacing-sm;
+
+        @include media($breakpoints-tablet) {
+            font-size: $font-size-h2;
+        }
+
+        @include media($breakpoints-mobile) {
+            font-size: $font-size-h3;
+        }
+    }
+
+    &__highlight {
+        display: inline-block;
+        background-color: $accent-color;
+        color: $white-text-color;
+        padding: $spacing-xs $spacing-md;
+        border-radius: $border-radius-small;
+        transform: rotate(-2deg);
+        margin-bottom: $spacing-md;
+    }
+
+    &__highlight-text {
+        font-weight: $font-weight-semibold;
+        font-size: $font-size-text-medium;
+
+        @include media($breakpoints-mobile) {
+            font-size: $font-size-text-small;
+        }
+    }
+
+    &__hero {
+        margin-bottom: $spacing-lg;
+        border-radius: $border-radius-large;
+        overflow: hidden;
+        box-shadow: $shadow-md;
+    }
+
+    &__img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: $transition;
+
+        @include hover {
+            transform: scale(1.02);
+        }
+    }
+
+    &__intro {
+        margin-bottom: $spacing-xl;
+        padding-bottom: $spacing-md;
+        border-bottom: 1px solid rgba($main-color, 0.1);
+    }
+
+    &__description {
+        font-size: $font-size-text;
+        line-height: $line-height-normal;
+        color: $main-text-color;
+        margin-bottom: $spacing-md;
+
+        strong {
+            color: $accent-color;
+            font-weight: $font-weight-semibold;
+        }
+
+        @include media($breakpoints-mobile) {
+            font-size: $font-size-text-small;
+            margin-bottom: $spacing-sm;
+        }
+    }
+
+    &__sections {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-md;
+        margin-bottom: $spacing-xl;
+    }
+
+    &__section {
+        background-color: $white-color;
+        border-radius: $border-radius-medium;
+        box-shadow: $shadow-sm;
+        padding: $spacing-md;
+        transition: $transition;
+        border-left: 3px solid $accent-color;
+
+        @include hover {
+            box-shadow: $shadow-md;
+        }
+
+        @include media($breakpoints-mobile) {
+            padding: $spacing-sm;
+        }
+    }
+
+    &__section-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: $spacing-sm;
+        padding-bottom: $spacing-xs;
+        border-bottom: 2px solid rgba($accent-color, 0.2);
+    }
+
+    &__section-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: $accent-color;
+        color: $white-text-color;
+        border-radius: $border-radius-circle;
+        margin-right: $spacing-sm;
+        font-size: 1.2rem;
+
+        @include media($breakpoints-mobile) {
+            width: 30px;
+            height: 30px;
+            font-size: 1rem;
+        }
+    }
+
+    &__section-title {
+        font-size: $font-size-text-large;
+        font-weight: $font-weight-semibold;
+        color: $main-color;
+
+        @include media($breakpoints-mobile) {
+            font-size: $font-size-text;
+        }
+    }
+
+    &__section-content {
+        color: $main-text-color;
+    }
+
+    &__list {
+        padding-left: $spacing-md;
+        margin-bottom: $spacing-sm;
+
+        li {
+            margin-bottom: $spacing-xs;
+            padding-left: $spacing-xs;
+
+            &::marker {
+                color: $accent-color;
+                font-size: 1.2rem;
+            }
+        }
+
+        @include media($breakpoints-mobile) {
+            padding-left: $spacing-sm;
+        }
+    }
+
+    &__location {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-sm;
+    }
+
+    &__location-item {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: $spacing-xs;
+    }
+
+    &__location-label {
+        font-weight: $font-weight-semibold;
+        color: $accent-color;
+        min-width: 60px;
+    }
+
+    &__location-value {
+        color: $main-text-color;
+    }
+
+    &__faq {
+        background: linear-gradient(45deg, rgba($main-color, 0.05), rgba($accent-color, 0.05));
+        border-radius: $border-radius-large;
+        padding: $spacing-md;
+        margin-top: $spacing-xl;
+
+        @include media($breakpoints-mobile) {
+            padding: $spacing-sm;
+        }
+    }
+
+    &__faq-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: $spacing-sm;
+    }
+
+    &__faq-icon {
+        font-size: 1.5rem;
+        color: $accent-color;
+        margin-right: $spacing-sm;
+
+        @include media($breakpoints-mobile) {
+            font-size: 1.2rem;
+        }
+    }
+
+    &__faq-title {
+        font-size: $font-size-text-large;
+        font-weight: $font-weight-semibold;
+        color: $main-color;
+
+        @include media($breakpoints-mobile) {
+            font-size: $font-size-text;
+        }
+    }
+
+    &__faq-text {
+        font-size: $font-size-text;
+        line-height: $line-height-normal;
+
+        @include media($breakpoints-mobile) {
+            font-size: $font-size-text-small;
+        }
+    }
+
+    &__link {
+        color: $accent-color;
+        text-decoration: none;
+        font-weight: $font-weight-medium;
+        transition: $transition;
+
+        @include hover {
+            text-decoration: underline;
+        }
+    }
+}

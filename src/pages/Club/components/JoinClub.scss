@@ -1,0 +1,155 @@
+@use "../../../assets/styles/variables" as *;
+@use "../../../assets/styles/mixins" as *;
+
+
+.join-form-modal {
+    @include flex(column, flex-start, stretch);
+    width: 100%;
+
+    &__title {
+        font-size: $font-size-h3;
+        font-weight: $font-weight-bold;
+        color: $main-color;
+        margin-bottom: $spacing-lg;
+        text-align: center;
+    }
+}
+
+.join-form {
+    @include flex(column, flex-start, stretch);
+    gap: $spacing-md;
+
+    &__group {
+        @include flex(column, flex-start, stretch);
+        gap: $spacing-xs;
+    }
+
+    &__label {
+        font-size: $font-size-text-small;
+        font-weight: $font-weight-medium;
+        color: $main-text-color;
+    }
+
+    &__input, &__select {
+        padding: $spacing-sm;
+        border: $border-width solid $secondary-color-light;
+        border-radius: $border-radius-small;
+        font-size: $font-size-text;
+        color: $main-text-color;
+        background-color: $main-background-color;
+        transition: $transition;
+
+        &:focus {
+            border-color: $accent-color;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba($accent-color, 0.2);
+        }
+    }
+
+    &__submit {
+        @include button($spacing-sm $spacing-md, $border-radius-small, $gradient-primary, $white-text-color);
+        align-self: center;
+        margin-top: $spacing-md;
+        font-weight: $font-weight-medium;
+        cursor: pointer;
+        transition: $transition;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: $shadow-sm;
+        }
+    }
+}
+
+.confirm-modal {
+    @include flex(column, center, center);
+    text-align: center;
+    padding: $spacing-md;
+
+    &__icon {
+        width: 80px;
+        height: 80px;
+        background: $accent-color;
+        color: $white-text-color;
+        border-radius: $border-radius-circle;
+        @include flex(row, center, center);
+        font-size: 40px;
+        margin-bottom: $spacing-md;
+    }
+
+    &__title {
+        font-size: $font-size-h3;
+        font-weight: $font-weight-bold;
+        color: $main-color;
+        margin-bottom: $spacing-sm;
+    }
+
+    &__text {
+        font-size: $font-size-text;
+        color: $main-text-color;
+        margin-bottom: $spacing-lg;
+        line-height: $line-height-normal;
+    }
+
+    &__button {
+        @include button($spacing-sm $spacing-xl, $border-radius-small, $gradient-primary, $white-text-color);
+        font-weight: $font-weight-medium;
+        cursor: pointer;
+        transition: $transition;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: $shadow-sm;
+        }
+    }
+}
+
+@media (max-width: $breakpoints-tablet) {
+    .club__join {
+        &-content {
+            padding: 0 $spacing-md;
+        }
+    }
+
+    .join-form-modal {
+        &__title {
+            font-size: $font-size-h4;
+        }
+    }
+
+    .confirm-modal {
+        &__icon {
+            width: 60px;
+            height: 60px;
+            font-size: 30px;
+        }
+
+        &__title {
+            font-size: $font-size-h4;
+        }
+    }
+}
+
+@media (max-width: $breakpoints-mobile) {
+    .club__join {
+        padding: $spacing-lg 0;
+
+        &-button {
+            padding: $spacing-sm $spacing-lg;
+        }
+    }
+
+    .join-form {
+        &__submit {
+            width: 100%;
+        }
+    }
+
+    .confirm-modal {
+        &__icon {
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+        }
+    }
+}

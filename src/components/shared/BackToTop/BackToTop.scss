@@ -1,0 +1,62 @@
+@use "../../../assets/styles/variables" as *;
+@use "../../../assets/styles/mixins" as *;
+
+.back-to-top {
+    position: fixed;
+    bottom: $spacing-lg;
+    right: $spacing-lg;
+    width: 50px;
+    height: 50px;
+    border-radius: $border-radius-circle;
+    background-color: $accent-color;
+    color: $white-text-color;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: $transition;
+    box-shadow: $shadow-md;
+    z-index: $z-index-top;
+    
+   
+    @include hover {
+        background: $main-color;
+    }
+    &.is-visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@media (max-width: $breakpoints-tablet) {
+    .back-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: $spacing-md;
+        right: $spacing-md;
+    }
+}
+
+@media (max-width: $breakpoints-mobile) {
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        bottom: $spacing-sm;
+        right: $spacing-sm;
+        
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}

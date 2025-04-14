@@ -1,0 +1,138 @@
+@use "../../../assets/styles/variables" as *;
+@use "../../../assets/styles/mixins" as *;
+
+.college-documents {
+  padding: $spacing-xl 0;
+  background-color: $white-color;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    background-repeat: repeat;
+    opacity: 0.03;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 100%;
+    padding-left: $spacing-md;
+    padding-right: $spacing-md;
+
+    @include media($breakpoints-mobile) {
+      padding-left: $spacing-sm;
+      padding-right: $spacing-sm;
+    }
+  }
+
+  &__header {
+    @include flex(row, space-between, center);
+    margin-bottom: $spacing-lg;
+    padding-bottom: $spacing-md;
+    border-bottom: 1px solid rgba($main-color, 0.1);
+
+    @include media($breakpoints-mobile) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $spacing-sm;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-h3;
+    font-weight: $font-weight-semibold;
+    color: $main-color;
+    position: relative;
+    padding-left: $spacing-md;
+
+    @include media($breakpoints-tablet) {
+      font-size: $font-size-h4;
+    }
+
+    @include media($breakpoints-mobile) {
+      font-size: $font-size-text-large;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 70%;
+      background: $gradient-primary;
+      border-radius: $border-radius-small;
+    }
+  }
+
+  &__link {
+    color: $accent-color;
+    font-size: $font-size-h4;
+    text-decoration: none;
+    font-weight: $font-weight-bold;
+    transition: $transition;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius-small;
+    border: 1px solid transparent;
+
+    @include media($breakpoints-tablet) {
+      font-size: $font-size-text-large;
+    }
+
+    @include media($breakpoints-mobile) {
+      font-size: $font-size-text-medium;
+      align-self: flex-end;
+    }
+
+    &::after {
+      content: "→";
+      margin-left: $spacing-xs;
+      display: inline-block;
+      transition: $transition;
+    }
+
+    @include hover {
+      text-decoration: none;
+      color: darken($accent-color, 15%);
+      &::after {
+        transform: translateX(2px);
+      }
+    }
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-lg;
+    perspective: 1000px;
+
+    @include media(1100px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include media($breakpoints-tablet-landscape) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $spacing-md;
+    }
+
+    @include media(800px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $spacing-sm;
+    }
+
+    @include media($breakpoints-mobile) {
+      grid-template-columns: 1fr;
+      gap: $spacing-md;
+    }
+  }
+}

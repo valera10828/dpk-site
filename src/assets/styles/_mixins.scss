@@ -1,0 +1,154 @@
+@use "variables" as *;
+// ======================
+// Миксин flex
+// ======================
+@mixin flex($direction: row, $justify: flex-start, $align: flex-start) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// ======================
+// Миксин grid
+// ======================
+@mixin grid($columns, $rows, $gap) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  grid-template-rows: repeat($rows, 1fr);
+  gap: $gap;
+}
+
+// ======================
+// Миксин media
+// ======================
+@mixin media($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+// ======================
+// Миксин placeholder
+// ======================
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &::placeholder {
+    @content;
+  }
+}
+
+// ======================
+// Миксин для правильного hover
+// ======================
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+// ======================
+// Миксин для правильного focus
+// ======================
+@mixin focus {
+  @media (hover: hover) {
+    &:focus {
+      @content;
+    }
+  }
+}
+
+// ======================
+// Миксин контейнера
+// ======================
+@mixin container($max-width: 1200px, $padding: 15px) {
+  width: 100%;
+  max-width: $max-width;
+  margin-inline: auto;
+  padding: 0 $padding;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+// ======================
+// Миксин обрезки текста
+// ======================
+@mixin truncate($lines: 1) {
+  @if $lines == 1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+// ======================
+// Миксин для шрифта
+// ======================
+@mixin font($size, $weight: $font-weight-regular, $color: $main-text-color) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+// ======================
+// Миксин для кнопки
+// ======================
+
+@mixin button(
+  $padding: 10px 20px,
+  $border-radius: $border-radius-medium,
+  $background-color: $main-color,
+  $color: $main-text-color
+) {
+  display: inline-block;
+  padding: $padding;
+  border-radius: $border-radius;
+  background: $background-color;
+  color: $color;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  border: none;
+}
+
+// ======================
+// Миксин для заголовка
+// ======================
+
+@mixin title{
+  color: black;
+  font-size: $font-size-h2;
+  text-transform: uppercase;
+}
+
+// ======================
+// Миксин для единого отступа во всех секциях
+// ======================
+
+@mixin section-container {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 60px;
+  
+  @include media($breakpoints-tablet) {
+    padding: 0 $padding-container;
+  }
+  
+  @include media($breakpoints-mobile) {
+    padding: 0 $padding-container-small;
+  }
+}

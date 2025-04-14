@@ -1,0 +1,71 @@
+@use "../../../assets/styles/variables" as *;
+@use "../../../assets/styles/mixins" as *;
+
+.foundation-card {
+    @include flex(column, space-between, flex-start);
+    width: 100%;
+    max-width: 400px;
+    min-height: 300px;
+    padding: $spacing-lg;
+    background-color: $main-background-color;
+    transition: $transition;
+    box-shadow: $shadow-sm;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+
+    @include hover {
+        background-color: $accent-color;
+        box-shadow: $shadow-md;
+
+        .foundation-card__title,
+        .foundation-card__year {
+            color: $white-text-color;
+        }
+    }
+
+    &__title {
+        @include font($font-size-h3, $font-weight-bold, $main-text-color);
+        margin-bottom: $spacing-md;
+        transition: color $transition;
+        margin-top: 0;
+        line-height: $line-height-tight;
+        max-width: 100%;
+        @include truncate(3);
+    }
+
+    &__year {
+        @include font(4rem, $font-weight-regular, $accent-color);
+        align-self: flex-end;
+        margin-top: auto;
+        transition: color $transition;
+        line-height: 1;
+    }
+
+    @include media($breakpoints-tablet) {
+        min-height: 250px;
+        padding: $spacing-md;
+
+        &__title {
+            font-size: $font-size-h4;
+        }
+
+        &__year {
+            font-size: 3.5rem;
+        }
+    }
+
+    @include media($breakpoints-mobile) {
+        min-height: 200px;
+        padding: $spacing-sm;
+
+        &__title {
+            font-size: $font-size-text-large;
+            margin-bottom: $spacing-sm;
+        }
+
+        &__year {
+            font-size: 3rem;
+        }
+    }
+}

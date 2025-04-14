@@ -1,0 +1,18 @@
+@use "../../../../assets/styles/variables" as *;
+@use "../../../../assets/styles/mixins" as *;
+
+
+.advantages-section {
+  background-color: $main-color;
+  width: 100%;
+  &__container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+
+    @include media($breakpoints-tablet-landscape) {
+      flex-wrap: wrap;
+    }
+  }
+}

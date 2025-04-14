@@ -1,0 +1,54 @@
+import React from 'react'
+import Title from "../../components/ui/Title/Title";
+import './Timetable.scss';
+import StarCard from '../../components/ui/StarCard/StarCard';
+
+const Timetable = () => {
+  return (
+    <div>
+      <Title title="Расписание" />
+      <div className="timetable-container">
+        <div className="timetable-container__text">
+          <p>Расписание занятий на 2 семестр 2024-2025 учебного года:</p>
+          <p>Каждый понедельник в 8:30 — «Разговоры о важном»</p>
+        </div>
+        <hr />
+        <div className="timetable-container__links">
+          <div className="timetable-container__link">
+            <a href="https://cloud.mail.ru/public/Mkvs/wrSB7hKbF" className="timetable-container__link-a">
+              <StarCard courseNumber="I" starsCount={1} />
+            </a>
+          </div>
+          <div className="timetable-container__link">
+            <a href="https://cloud.mail.ru/public/1ynZ/RzgM3pqPP" className="timetable-container__link-a">
+              <StarCard courseNumber="II" starsCount={2} />
+            </a>
+          </div>
+          <div className="timetable-container__link">
+            <a href="https://cloud.mail.ru/public/NXBQ/FvLd6CS8o" className="timetable-container__link-a">
+              <StarCard courseNumber="III" starsCount={3} />
+            </a>
+          </div>
+          <div className="timetable-container__link">
+            <a href="/" className="timetable-container__link-a">
+              <StarCard courseNumber="IV" starsCount={4} />
+            </a>
+          </div>
+        </div>
+        <div className="timetable-container__schedule">
+          <h2 className="timetable-container__title">Расписание звонков</h2>
+          <hr />
+          <ul className="timetable-container__schedule-list">
+            <li className="timetable-container__schedule-list-item">I пара: 8:30-9:30</li>
+            <li className="timetable-container__schedule-list-item">II пара: 9:40-10:40</li>
+            <li className="timetable-container__schedule-list-item">III пара: 11:00-12:00</li>
+            <li className="timetable-container__schedule-list-item">IV пара: 12:10-13:10</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  )
+}
+
+export default Timetable;

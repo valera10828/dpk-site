@@ -1,0 +1,93 @@
+@use "../../../assets/styles/variables" as *;
+@use "../../../assets/styles/mixins" as *;
+
+.college-info {
+  padding: $spacing-xl 0;
+  background: $background-black-gradient;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: rgba($accent-color, 0.1);
+    z-index: 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -100px;
+    right: -100px;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background-color: rgba($accent-color, 0.05);
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__cards {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    box-shadow: $shadow-lg;
+    border-radius: $border-radius-medium;
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out;
+
+    & > div {
+      margin: 0;
+      flex: 1;
+      border-right: 1px solid rgba($white-color, 0.1);
+      transition: $transition;
+
+      &:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    @include media($breakpoints-tablet-landscape) {
+      flex-wrap: wrap;
+
+      & > div {
+        flex-basis: 50%;
+        border-right: 1px solid rgba($white-color, 0.1);
+        border-bottom: 1px solid rgba($white-color, 0.1);
+
+        &:nth-child(2n) {
+          border-right: none;
+        }
+
+        &:nth-last-child(-n+2) {
+          border-bottom: none;
+        }
+      }
+
+      @include media($breakpoints-mobile) {
+        & > div {
+          flex-basis: 100%;
+          border-right: none;
+          border-bottom: 1px solid rgba($white-color, 0.1);
+
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,129 @@
+@use "../../../../assets/styles/variables" as *;
+@use "../../../../assets/styles/mixins" as *;
+
+.speciality-info {
+  background-color: $main-color;
+  color: $white-text-color;
+  padding: 80px 0;
+  margin-bottom: $margin-block;
+  position: relative;
+  overflow: hidden;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba($white-color, 0.1) 0%, rgba($white-color, 0) 70%);
+    border-radius: 50%;
+    z-index: 1;
+  }
+  
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba($white-color, 0.05) 0%, rgba($white-color, 0) 70%);
+    border-radius: 50%;
+    z-index: 1;
+  }
+  
+  &__inner {
+    @include section-container;
+    position: relative;
+    z-index: 2;
+  }
+  
+  &__title {
+    font-size: $font-size-h2;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-xl;
+    position: relative;
+    display: inline-block;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: $white-color;
+      border-radius: 2px;
+    }
+  }
+  
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xl;
+  }
+  
+  &__description {
+    font-size: $font-size-text-large;
+    line-height: $line-height-loose;
+    max-width: 800px;
+    opacity: 0.9;
+  }
+  
+  &__features {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: $spacing-lg;
+    
+    @include media($breakpoints-tablet) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  &__feature {
+    background-color: rgba($white-color, 0.1);
+    border-radius: $border-radius-large;
+    padding: $spacing-lg;
+    display: flex;
+    gap: $spacing-md;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    
+    @include hover {
+      background-color: rgba($white-color, 0.15);
+    }
+  }
+  
+  &__feature-icon {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    border-radius: 50%;
+    background-color: rgba($white-color, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    i {
+      font-size: 24px;
+      color: $white-text-color;
+    }
+  }
+  
+  &__feature-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  &__feature-title {
+    font-size: $font-size-text-large;
+    font-weight: $font-weight-semibold;
+  }
+  
+  &__feature-text {
+    font-size: $font-size-text;
+    line-height: $line-height-normal;
+    opacity: 0.9;
+  }
+}

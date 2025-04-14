@@ -1,0 +1,94 @@
+@use "../../../../assets/styles/variables" as *;
+@use "../../../../assets/styles/mixins" as *;
+
+.program-description {
+  margin-bottom: $margin-block;
+  
+  &__inner {
+    @include section-container;
+  }
+  
+  &__content {
+    background-color: $white-color;
+    border-radius: $border-radius-large;
+    padding: $spacing-xl;
+    box-shadow: $shadow-md;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+    
+    @include media($breakpoints-tablet) {
+      padding: $spacing-lg;
+    }
+  }
+  
+  &__title {
+    font-size: $font-size-h2;
+    font-weight: $font-weight-bold;
+    color: $main-text-color;
+    margin-bottom: $spacing-lg;
+    display: inline-block;
+    position: relative;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: $gradient-primary;
+      border-radius: 2px;
+    }
+  }
+  
+  &__text {
+    font-size: $font-size-text-large;
+    line-height: $line-height-loose;
+    color: $auxiliary-color;
+  }
+  
+  &__key-points {
+    background-color: $second-background-color;
+    border-radius: $border-radius-medium;
+    padding: $spacing-lg;
+    border-left: 5px solid $accent-color;
+  }
+  
+  &__subtitle {
+    font-size: $font-size-h3;
+    font-weight: $font-weight-semibold;
+    color: $main-text-color;
+    margin-bottom: $spacing-md;
+  }
+  
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+  
+  &__item {
+    font-size: $font-size-text;
+    line-height: $line-height-normal;
+    color: $main-text-color;
+    position: relative;
+    padding-left: $spacing-lg;
+    display: flex;
+    align-items: center;
+    
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: $border-radius-circle;
+      background-color: $accent-color;
+      box-shadow: 0 0 5px rgba($accent-color, 0.5);
+    }
+  }
+}

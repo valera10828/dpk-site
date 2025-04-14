@@ -1,0 +1,24 @@
+@use "../../assets/styles/variables" as *;
+@use "../../assets/styles/mixins" as *;
+
+.about-page {
+  width: 100%;
+  
+  .container {
+    max-width: $container-width;
+    margin: 0 auto;
+    padding: 0 $padding-container;
+  }
+
+  section {
+    padding: $spacing-xl 0;
+    
+    &:first-of-type {
+      padding-top: $spacing-lg;
+    }
+    
+    &:last-of-type {
+      padding-bottom: $spacing-xl * 2;
+    }
+  }
+}

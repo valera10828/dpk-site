@@ -1,0 +1,113 @@
+@use "../../../assets/styles/variables" as *;
+@use "../../../assets/styles/mixins" as *;
+
+.contacts-modal {
+    padding: 1rem;
+    max-width: 500px;
+
+    &__title {
+        font-size: 1.8rem;
+        color: $main-color;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        position: relative;
+        padding-bottom: 0.8rem;
+    }
+
+
+
+    &__section {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid rgba($main-color, 0.1);
+
+        &:last-of-type {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+    }
+
+    &__subtitle {
+        font-size: 1.2rem;
+        color: $main-color;
+        margin-bottom: 1rem;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__icon {
+        color: $accent-color;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+    }
+
+    &__link {
+        color: $text-color;
+        text-decoration: none;
+        transition: color 0.3s;
+
+        &:hover {
+            color: $accent-color;
+        }
+    }
+
+    &__text {
+        color: $text-color;
+    }
+
+
+    &__social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 0.5rem;
+    }
+
+    &__social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: $main-color;
+        color: white;
+        font-size: 1.2rem;
+        transition:
+            background-color 0.3s,
+            transform 0.3s;
+
+        &:hover {
+            background-color: $accent-color;
+            transform: scale(1.1);
+        }
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: center;
+        margin-top: 1.5rem;
+    }
+
+    @include media($breakpoints-mobile) {
+        &__title {
+            font-size: 1.5rem;
+        }
+
+        &__subtitle {
+            font-size: 1.1rem;
+        }
+
+        &__social-links {
+            justify-content: center;
+        }
+    }
+}

@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "../layouts/Layout";
 import Home from "../pages/Home/Home";
 import News from "../pages/News/News";
@@ -37,43 +37,45 @@ import PageTransition from "../components/shared/PageTransition/PageTransition";
 const AppRoutes = () => {
   return (
     <>
-      <ScrollToTop />
-      <PageTransition>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/news" element={<News />} />
-            <Route path="/specialities" element={<Specialties />} />
-            <Route path="/opendoorsEvent" element={<OpenDoors />} />
-            <Route path="/timetable" element={<Timetable />} />
-            <Route path="/introductory" element={<IntroductoryCampaign />} />
-            <Route path="/distance" element={<Distance />} />
-            <Route path="/club" element={<Club />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/documents" element={<Documets />} />
-            <Route path="/professionalitet" element={<Professional />} />
-            {/*specialities*/}
-            <Route path='/specialities/software-development' element={<SoftwareDevelopment />} />
-            <Route path='/specialities/information-systems-programming' element={<InformationSystemsProgramming />} />
-            <Route path='/specialities/car-maintenance' element={<CarMaintenance />} />
-            <Route path='/specialities/electrical-installation' element={<ElectricalInstallation />} />
-            <Route path='/specialities/electrical-equipment-maintenance' element={<ElectricalEquipmentMaintenance />} />
-            <Route path='/specialities/water-supply-and-sewerage' element={<WaterSupplyAndSewerage />} />
-            <Route path='/specialities/engine-systems-maintenance' element={<EngineSystemsMaintenance />} />
-            <Route path='/specialities/computer-networks' element={<ComputerNetworks />} />
-            <Route path='/specialities/computer-systems-complexes' element={<ComputerSystemsComplexes />} />
-            <Route path='/specialities/network-administration' element={<NetworkAdministration />} />
-            <Route path='/specialities/physical-education' element={<PhysicalEducation />} />
-            <Route path='/specialities/mechatronics-robotics' element={<MechatronicsRobotics />} />
-            {/*test*/}
-            <Route path="/specialities/test" element={<SpecialtyTest />} />
-            {/*Terms*/}
-            <Route path='/terms/data-processing' element={<DataProcessingTerms />} />
-            {/*Privacy*/}
-            <Route path='/privacy' element={<PrivacyPolicy />} />
-          </Route>
-        </Routes>
-      </PageTransition>
+      <Router basename="/dpk-site">
+        <ScrollToTop/>
+        <PageTransition>
+          <Routes>
+            <Route path="/" element={<Layout/>}>
+              <Route path="/" element={<Home/>}/>
+              <Route path="/news" element={<News/>}/>
+              <Route path="/specialities" element={<Specialties/>}/>
+              <Route path="/opendoorsEvent" element={<OpenDoors/>}/>
+              <Route path="/timetable" element={<Timetable/>}/>
+              <Route path="/introductory" element={<IntroductoryCampaign/>}/>
+              <Route path="/distance" element={<Distance/>}/>
+              <Route path="/club" element={<Club/>}/>
+              <Route path="/about" element={<About/>}/>
+              <Route path="/documents" element={<Documets/>}/>
+              <Route path="/professionalitet" element={<Professional/>}/>
+              {/*specialities*/}
+              <Route path='/specialities/software-development' element={<SoftwareDevelopment/>}/>
+              <Route path='/specialities/information-systems-programming' element={<InformationSystemsProgramming/>}/>
+              <Route path='/specialities/car-maintenance' element={<CarMaintenance/>}/>
+              <Route path='/specialities/electrical-installation' element={<ElectricalInstallation/>}/>
+              <Route path='/specialities/electrical-equipment-maintenance' element={<ElectricalEquipmentMaintenance/>}/>
+              <Route path='/specialities/water-supply-and-sewerage' element={<WaterSupplyAndSewerage/>}/>
+              <Route path='/specialities/engine-systems-maintenance' element={<EngineSystemsMaintenance/>}/>
+              <Route path='/specialities/computer-networks' element={<ComputerNetworks/>}/>
+              <Route path='/specialities/computer-systems-complexes' element={<ComputerSystemsComplexes/>}/>
+              <Route path='/specialities/network-administration' element={<NetworkAdministration/>}/>
+              <Route path='/specialities/physical-education' element={<PhysicalEducation/>}/>
+              <Route path='/specialities/mechatronics-robotics' element={<MechatronicsRobotics/>}/>
+              {/*test*/}
+              <Route path="/specialities/test" element={<SpecialtyTest/>}/>
+              {/*Terms*/}
+              <Route path='/terms/data-processing' element={<DataProcessingTerms/>}/>
+              {/*Privacy*/}
+              <Route path='/privacy' element={<PrivacyPolicy/>}/>
+            </Route>
+          </Routes>
+        </PageTransition>
+      </Router>
     </>
   );
 };

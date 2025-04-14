@@ -37,7 +37,6 @@ import PageTransition from "../components/shared/PageTransition/PageTransition";
 const AppRoutes = () => {
   return (
     <>
-      <Router basename="/dpk-site">
         <ScrollToTop/>
         <PageTransition>
           <Routes>

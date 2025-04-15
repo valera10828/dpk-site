@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/dpk-site/static/css/main.79fd5c13.css",
-    "main.js": "/dpk-site/static/js/main.904faaf1.js",
+    "main.js": "/dpk-site/static/js/main.3dbead14.js",
     "static/css/943.af7d34f8.chunk.css": "/dpk-site/static/css/943.af7d34f8.chunk.css",
     "static/js/943.8601a7ba.chunk.js": "/dpk-site/static/js/943.8601a7ba.chunk.js",
     "static/css/457.0c2b1400.chunk.css": "/dpk-site/static/css/457.0c2b1400.chunk.css",
     "static/js/457.729e2fa3.chunk.js": "/dpk-site/static/js/457.729e2fa3.chunk.js",
     "static/css/162.bb1f0d16.chunk.css": "/dpk-site/static/css/162.bb1f0d16.chunk.css",
     "static/js/162.9191c833.chunk.js": "/dpk-site/static/js/162.9191c833.chunk.js",
-    "static/css/359.8e5eb193.chunk.css": "/dpk-site/static/css/359.8e5eb193.chunk.css",
-    "static/js/359.e3f932ee.chunk.js": "/dpk-site/static/js/359.e3f932ee.chunk.js",
+    "static/css/359.c813e427.chunk.css": "/dpk-site/static/css/359.c813e427.chunk.css",
+    "static/js/359.2092d66a.chunk.js": "/dpk-site/static/js/359.2092d66a.chunk.js",
     "static/css/538.6dc2a1ab.chunk.css": "/dpk-site/static/css/538.6dc2a1ab.chunk.css",
     "static/js/538.b9fe11cc.chunk.js": "/dpk-site/static/js/538.b9fe11cc.chunk.js",
     "static/css/673.d93a8879.chunk.css": "/dpk-site/static/css/673.d93a8879.chunk.css",
@@ -84,15 +84,15 @@
     "static/media/medal.svg": "/dpk-site/static/media/medal.3cb328d7b923cd7232b0857571ae3415.svg",
     "index.html": "/dpk-site/index.html",
     "main.79fd5c13.css.map": "/dpk-site/static/css/main.79fd5c13.css.map",
-    "main.904faaf1.js.map": "/dpk-site/static/js/main.904faaf1.js.map",
+    "main.3dbead14.js.map": "/dpk-site/static/js/main.3dbead14.js.map",
     "943.af7d34f8.chunk.css.map": "/dpk-site/static/css/943.af7d34f8.chunk.css.map",
     "943.8601a7ba.chunk.js.map": "/dpk-site/static/js/943.8601a7ba.chunk.js.map",
     "457.0c2b1400.chunk.css.map": "/dpk-site/static/css/457.0c2b1400.chunk.css.map",
     "457.729e2fa3.chunk.js.map": "/dpk-site/static/js/457.729e2fa3.chunk.js.map",
     "162.bb1f0d16.chunk.css.map": "/dpk-site/static/css/162.bb1f0d16.chunk.css.map",
     "162.9191c833.chunk.js.map": "/dpk-site/static/js/162.9191c833.chunk.js.map",
-    "359.8e5eb193.chunk.css.map": "/dpk-site/static/css/359.8e5eb193.chunk.css.map",
-    "359.e3f932ee.chunk.js.map": "/dpk-site/static/js/359.e3f932ee.chunk.js.map",
+    "359.c813e427.chunk.css.map": "/dpk-site/static/css/359.c813e427.chunk.css.map",
+    "359.2092d66a.chunk.js.map": "/dpk-site/static/js/359.2092d66a.chunk.js.map",
     "538.6dc2a1ab.chunk.css.map": "/dpk-site/static/css/538.6dc2a1ab.chunk.css.map",
     "538.b9fe11cc.chunk.js.map": "/dpk-site/static/js/538.b9fe11cc.chunk.js.map",
     "673.d93a8879.chunk.css.map": "/dpk-site/static/css/673.d93a8879.chunk.css.map",
@@ -102,6 +102,6 @@
   },
   "entrypoints": [
     "static/css/main.79fd5c13.css",
-    "static/js/main.904faaf1.js"
+    "static/js/main.3dbead14.js"
   ]
 }

@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/dpk-site/static/css/main.79fd5c13.css",
-    "main.js": "/dpk-site/static/js/main.3dbead14.js",
-    "static/css/943.af7d34f8.chunk.css": "/dpk-site/static/css/943.af7d34f8.chunk.css",
-    "static/js/943.8601a7ba.chunk.js": "/dpk-site/static/js/943.8601a7ba.chunk.js",
+    "main.css": "/dpk-site/static/css/main.088fb1d0.css",
+    "main.js": "/dpk-site/static/js/main.d5d7940b.js",
+    "static/css/404.bd3c1449.chunk.css": "/dpk-site/static/css/404.bd3c1449.chunk.css",
+    "static/js/404.d03b6ce4.chunk.js": "/dpk-site/static/js/404.d03b6ce4.chunk.js",
     "static/css/457.0c2b1400.chunk.css": "/dpk-site/static/css/457.0c2b1400.chunk.css",
     "static/js/457.729e2fa3.chunk.js": "/dpk-site/static/js/457.729e2fa3.chunk.js",
     "static/css/162.bb1f0d16.chunk.css": "/dpk-site/static/css/162.bb1f0d16.chunk.css",
@@ -83,10 +83,10 @@
     "static/media/star.svg": "/dpk-site/static/media/star.c339ca7e51f20d6fc0a53372425621ed.svg",
     "static/media/medal.svg": "/dpk-site/static/media/medal.3cb328d7b923cd7232b0857571ae3415.svg",
     "index.html": "/dpk-site/index.html",
-    "main.79fd5c13.css.map": "/dpk-site/static/css/main.79fd5c13.css.map",
-    "main.3dbead14.js.map": "/dpk-site/static/js/main.3dbead14.js.map",
-    "943.af7d34f8.chunk.css.map": "/dpk-site/static/css/943.af7d34f8.chunk.css.map",
-    "943.8601a7ba.chunk.js.map": "/dpk-site/static/js/943.8601a7ba.chunk.js.map",
+    "main.088fb1d0.css.map": "/dpk-site/static/css/main.088fb1d0.css.map",
+    "main.d5d7940b.js.map": "/dpk-site/static/js/main.d5d7940b.js.map",
+    "404.bd3c1449.chunk.css.map": "/dpk-site/static/css/404.bd3c1449.chunk.css.map",
+    "404.d03b6ce4.chunk.js.map": "/dpk-site/static/js/404.d03b6ce4.chunk.js.map",
     "457.0c2b1400.chunk.css.map": "/dpk-site/static/css/457.0c2b1400.chunk.css.map",
     "457.729e2fa3.chunk.js.map": "/dpk-site/static/js/457.729e2fa3.chunk.js.map",
     "162.bb1f0d16.chunk.css.map": "/dpk-site/static/css/162.bb1f0d16.chunk.css.map",
@@ -101,7 +101,7 @@
     "494.8860fec2.chunk.js.map": "/dpk-site/static/js/494.8860fec2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.79fd5c13.css",
-    "static/js/main.3dbead14.js"
+    "static/css/main.088fb1d0.css",
+    "static/js/main.d5d7940b.js"
   ]
 }
